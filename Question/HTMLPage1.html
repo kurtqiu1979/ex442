@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Administration Tasks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            margin-top: 2em;
+        }
+
+        ol {
+            margin-left: 1.5em;
+        }
+
+        li {
+            margin-bottom: 0.5em;
+        }
+
+        .task-input {
+            margin-top: 1em;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 0.5em;
+        }
+    </style>
+</head>
+<body>
+    <h1>System Administration Tasks</h1>
+    <form>
+        <ol>
+            <li>
+                <h2>Identify Hardware Characteristics</h2>
+                <p>The file /root/dmidecode.out contains the output from the dmidecode utility that was run on another system. Using this file identify the size of the Ll and L2 data caches, on the system on which this output was generated. If the output contains information about multiple processors or multiple cores, you should base your answer on only a single processor or core.</p>
+                <div class="task-input">
+                    <label for="l1-cache-size">Enter the size of the L1 data cache:</label>
+                    <input type="text" id="l1-cache-size" name="l1-cache-size" required>
+                </div>
+                <div class="task-input">
+                    <label for="l2-cache-size">Enter the size of the L2 data cache:</label>
+                    <input type="text" id="l2-cache-size" name="l2-cache-size" required>
+                </div>
+            </li>
+            <li>
+                <h2>Analyze sar output</h2>
+                <p>On server A, analyze the sar.data file collected from other computers and answer the following questions:</p>
+                <ol>
+                    <li>What is the maximum number of processes on the system?</li>
+                    <div class="task-input">
+                        <input type="text" id="l2-cache-size" name="l2-cache-size" required>
+                    </div>
+                    <li>Regarding the device with the highest write I/O, what is the highest write I/O? (Rounded to the nearest hundred)</li>
+                    <div class="task-input">
+                        <input type="text" id="l2-cache-size" name="l2-cache-size" required>
+                    </div>
+                    <li>How long (in minutes) did the burst of traffic last on a single network card?</li>
+                    <div class="task-input">
+                        <input type="text" id="l2-cache-size" name="l2-cache-size" required>
+                    </div>
+                </ol>
+                <!-- Add text inputs or other form elements for each question as needed -->
+            </li>
+            <!-- Add more tasks here, along with appropriate form elements for each task -->
+            <!-- ... -->
+            <!-- Example for the last task (Analyze PCP Data Files) -->
+            <li>
+                <h2>Identify System Call</h2>
+                <p>Identify the most frequently called system call in the command: /usr/bin/updatedb </p>
+</li>
+            <li>
+                <h2>Configure Swap Space</h2>
+                <p>
+                    This system should have a total of 2048 MB of swap space.Configure enough swap
+                    to make this the case subject to the following requirements:<br>
+
+                    Do not delete any existing swap volumes;<br>
+                    The additional swap space should be split equally among two new partitions;<br>
+                    The new swap partitions should be mounted at system boot time;<br>
+                    Upon boot up,the kernel should use the new swap partitions before using the existing swap volume.<br>
+                </p>
+            </li>
+            <li>
+                <h2>Memory Limits</h2>
+                <p>
+                    Configure station such that when the application<br />
+                    /usr/local/bin/greedy is run,it fail with the message 'unable to allocate memory' but the application<br />
+                    /usr/local/bin/checklimit displays the message 'Success:Address space limit is okay'.<br />
+                </p>
+            </li>
+            <li>
+                <h2>Configure Shared Memory</h2>
+                <p>
+                    Configure station so that the amount of SYSV shared memory available to all application is at least 1 GiB but no more than 1.5 GiB.
+                    This setting should persist across reboots.
+                </p>
+            </li>
+            <li>
+                <h2>Configure Process Priority</h2>
+                <p>
+                    On station in /usr/local/bin there is an application called realtime.
+                    Configure the system so that this application starts up automatically at system boot with a static priority of 27 using round robin priority scheduling.This program should run as a background job.
+                </p>
+            </li>
+            <li>
+                <h2>Distinguish Memory Utilization</h2>
+                <p>
+                    Determine the amount of physical memory,in pages,used by the realtime application.
+                    If necessary,pick the value from the list that rounds up to or down to the closest value.Click on 'Submit Anwsers' to record your answer.
+                    <div class="task-input">
+                        <input type="text" id="l2-cache-size" name="l2-cache-size" required>
+                    </div>
+                </p>
+            </li>
+            <li>
+                <h2>Configure System Analysis Support</h2>
+                <p>On station there is a file in the root home directory called count_jiffies.stp Configure this system so that the root user can run this script.</p>
+            </li>
+            <li>
+                <h2>Cache Hit Rate</h2>
+                <p>
+                    There are two versions of an application in the home directory for the root account: cachea and cacheb.<br />
+                    Both versions of the application do the same thing but one of the application exhibits improper use of cache memory.<br />
+                    Determine which program has the better cache performance and copy this program into /usr/local/bin.<br />
+
+                    You may choose which utility,or utilities,to use to make this determination.<br />
+                </p>
+            </li>
+            <li>
+                <h2>Configure Network Buffers</h2>
+                <p>Configure the network buffers for this system so that each UDP connection,both incoming and outgoing,is guaranteed a minimum of 128 KiB of buffer and a maximum of 192 KiB of buffer space.</p>
+            </li>
+            <li>
+                <h2>Configure SAR</h2>
+                <p>Configure the sar data collection scripts on station to run at 3 minute intervals.</p>
+            </li>
+            <li>
+                <h2>Network Buffer (BDP)</h2>
+                <p>
+                    Most of the network connections between this system and other systems will be via a low earth orbit satellite link.The latency of this connection is approximately 500 milliseconds and the bandwidth of the link is 1.5 Mib/s(mebibits/second).Tune the system so that for all TCP connections:<br />
+                    The minimum amount of memory available for buffering per connection is large enough for this latency and bandwidth;<br />
+                    The default amount of memory available for buffering per connection is equal to the minimum amount of memory for buffering;<br />
+                    The maximum amount of memory available for buffering per connection is equal to 1.5 times the minimum amount of memory available for buffering.<br />
+                </p>
+            </li>
+            <li>
+                <h2>Configure Service Memory</h2>
+                <p>
+                    On servera,create a service that meets the following requirements:<br />
+                    Service name: monitoring_service<br />
+                    This service runs /usr/local/bin/monitoring_app<br />
+                    This service starts automatically with the operating system<br />
+                    This service must not use more than 10Mb of memory, if it exceeds, it will be terminated<br />
+                    Service running information can be viewed by looking at /var/log/messages<br />
+                </p>
+            </li>
+            <li>
+                <h2>Configure Disk Flushing</h2>
+                <p>Configure the system so that modified data can remain in memory for up to 45 seconds before being considered for flushing to disk.</p>
+            </li>
+            <li>
+                <h2>Analyze Application Performance</h2>
+                <p>
+                    There is a tarball in your root home directory, called appl icat ion .tgz that contains a client-server application.<br />
+                    Both the client and server are designed to run on the same system.<br />
+                    The client application is designed as a test utility for the server. The client accepts input from the keyboard andsends it to the server. Typing a ctrl-D will terminate the client.<br />
+                    The server accepts input from the client and logs it to the file /tmp/application.out.<br />
+                    Once it is put into production, the server application will be expected to run for long periods without a restart andduring the course of an average day, will be serving out hundreds of connection requests. The expected amount ofdata to be handled by the server will average around 50 KiB per second. The server will be deployed on a systemwhich has sufficient disk space to handle this data rate and log files will be rotated daily to ensure that diskutilization does not become a concern.<br />
+                    Analyze the server application and identify, if any, problematic behavior that it exhibits. Record your answer below.<br />
+                </p>
+            </li>
+            <li>
+                <h2>Configure a Module</h2>
+                <p>This system will be receiving a hardware upgrade in the form of a SCSl controller and a SCSI tape backup unit. Makesure that the SCSl tape controller module st.ko loads with a default buffer size of 24 KiB. <br />
+                You should verify thatwhen the module is loaded the kernel reports the correct buffer size in the kernel ring buffer.</p>
+            </li>
+            <li>
+                <h2>Configure Tuned</h2>
+                <p>
+                    On servera, create a tuned profile with the following requirements:<br />
+                    Profile name is rh442<br />
+                    The profile inherits from the system's recommended profile<br />
+                    The readahead parameter for the disk is 3092KiB<br />
+                    The profile remains effective after a restart<br />
+                </p>
+            </li>
+            <li>
+                <h2>Configure Slice</h2>
+                <p>
+                    On servera, create a cgroup slice named rh442 with the following requirements:<br />
+                    The slice must be limited to 1024 CPU shares and 256M memory<br />
+                    The httpd service should call this slice, and the service should start automatically at boot<br />
+                </p>
+            </li>
+            <li>
+                <h2>Application Analysis</h2>
+                <p>Determine on which NUMA node the firewalld program is running.</p>
+            </li>
+            <li>
+                <h2>Network Analysis</h2>
+                <p>
+                    On servera, there are two Yum repositories providing the ansible-doc package<br />
+                    One Yum repository has a better response time than the other.<br />
+                    Update the Yum configuration on servera to use the Yum repository with the lowest latency, as follows:<br />
+                    http://a.example.com/repo<br />
+                    http://b.example.com/repo<br />
+                    Only one repository can be used<br />
+
+                </p>
+            </li>
+            <li>
+                <h2>Minimize Page Table Size and TLB Flushes</h2>
+                <p>
+                    There are two versions of a program in /root that both allocate a 64 MiB segment of shared memory. Configureyour system so that it can run one or the other of these programs according to the following requirements:<br />
+                    The amount of memory consumed by the page tables for the process running the program is minimized<br />
+                    Assuming this system is primarily running only this program, TLB flushes are minimized when theprogram is running<br />
+                    The configuration changes you make persist across reboots<br />
+                    The program hugepage . shm uses SYSV shared memory to allocate the 64 MiB segment of memory. Theprogram hugepage .fs uses a pseudofilesystem to handle the memory allocation.<br />
+
+                    You only need to configure your system to support one or the other program, You do not need to configure yoursystem to support both. You should copy only the program you decide to use into the /usr/local/bin directory.<br />
+
+                    If you choose to support the hugepage.fs program, the pseudofilesystem should be mounted to the directory /bigpages. This filesystem should be automatically mounted after a system reboot. When running thehugepage.fs program, you will be prompted for the name of a file under the mountpoint for your pseudofilesystem: you should use the file /bigpages/memory.<br />
+
+                    Both programs will pause after allocating the shared memory and prompt you to continue when you are ready. Thisis so that you may examine the system while the program is running to confirm that memory is being properlyallocated.<br />
+                </p>
+            </li>
+            <li>
+                <h2>Analyze PCP Data Files</h2>
+                <p>
+                    On servera, the pmlogger log file 20141231.06.00.01.folio contains about 1 hour of system operation data. Analyze and answer the following questions:<br />
+                    Which device has the highest peak I/O write rate?<br />
+                    <div class="task-input">
+                        <input type="text" id="l1-cache-size" name="l1-cache-size" required>
+                    </div>
+                    What is the peak write rate of this device in MB/s?<br />
+                    <div class="task-input">
+                        <input type="text" id="l1-cache-size" name="l1-cache-size" required>
+                    </div>
+                    What is the peak write rate of another device in MB/s?<br />
+                    <div class="task-input">
+                        <input type="text" id="l1-cache-size" name="l1-cache-size" required>
+                    </div>
+                </p>
+            </li>
+        </ol>
+        <button type="submit">Submit Answers</button>
+    </form>
+</body>
+</html>
