@@ -1,0 +1,23 @@
+/*
+	Simple SystemTap script to count scheduler ticks.
+
+*/
+
+global count_jiffies
+
+probe kernel.function("scheduler_tick")
+{
+	++count_jiffies;
+
+	if (count_jiffies > 100)
+		exit();
+}
+
+probe end
+{
+	printf("%d jiffies elapsed\n", count_jiffies);
+
+	
+}
+
+	
